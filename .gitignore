@@ -41,9 +41,6 @@ build/Release
 node_modules/
 jspm_packages/
 
-# TypeScript v1 declaration files
-typings/
-
 # TypeScript cache
 *.tsbuildinfo
 
@@ -81,6 +78,7 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
+lib
 
 # Gatsby files
 .cache/
@@ -102,3 +100,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# os
+.DS_Store
+.idea
