@@ -23,7 +23,7 @@ $ npm install @jsany/aw
 **IMPORTANT**: Your script will be run as [ESM](https://nodejs.org/api/esm.html).
 
 1. Create a new blank Alfred workflow.
-2. Add a `Script Filter` (right-click the canvas → `Inputs` → `Script Filter`), set `Language` to /`bin/bash`, and add the following script: `.node_modules/@jsany/aw/lib/runtime/tjs ./index.js "$1"`
+2. Add a `Script Filter` (right-click the canvas → `Inputs` → `Script Filter`), set `Language` to /`bin/bash`, and add the following script: `.node_modules/@jsany/aw/runtime/tjs ./index.js "$1"`
 3. Set the `Keyword` by which you want to invoke your workflow.
 4. Go to your new workflow directory (right-click on the workflow in the sidebar → `Open in Finder`).
 5. Initialize a repo with `npm init`.
