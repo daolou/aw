@@ -2,7 +2,7 @@
  * @Author: zhiguo.jzg
  * @Date: 2022-05-16 23:51:14
  * @Description: TODO: Description of file, its uses and information
- * @LastEditTime: 2022-05-17 14:50:11
+ * @LastEditTime: 2022-05-17 14:56:31
  * @LastEditors: zhiguo.jzg
  */
 import axios from './utils/redaxios';
@@ -84,7 +84,7 @@ const aw = {
 -
 ${aw.meta.name} ${aw.meta.version}
 Alfred ${aw.alfred.version}
-${tjs.platform} ${JSON.stringify(tjs.networkInterfaces())}
+${tjs.platform}
 	`.trim();
     aw.output([
       {

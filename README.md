@@ -38,9 +38,9 @@ Here we fetch some JSON from a placeholder API and present matching items to the
 ```js
 import aw from '@jsany/aw';
 
-const data = await aw.fetch('https://jsonplaceholder.typicode.com/posts');
+const res = await aw.fetch.get('https://jsonplaceholder.typicode.com/posts');
 
-const items = aw.inputMatches(data, 'title').map((element) => ({
+const items = aw.inputMatches(res.data, 'title').map((element) => ({
   title: element.title,
   subtitle: element.body,
   arg: element.id,
