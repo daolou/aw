@@ -22,10 +22,11 @@
   "main": "lib/index.js",
   "scripts": {
     "check:ts": "tsc --noEmit --pretty",
-    "compile": "rimraf dist && rollup -c rollup.config.js",
+    "compile": "rimraf lib && rollup -c rollup.config.js",
     "np": "./scripts/publish.sh",
     "prepare": "husky install",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "./lib/runtime/tjs ./lib/index.js"
   },
   "lint-staged": {
     "package.json": [
@@ -48,9 +49,9 @@
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.73.0",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-ts": "^2.0.7",
-    "rollup-plugin-uglify": "^6.0.4",
     "sort-package-json": "^1.57.0",
     "standard-version": "^9.5.0",
     "typescript": "^4.6.4"

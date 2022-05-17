@@ -2,7 +2,7 @@
  * @Author: zhiguo.jzg
  * @Date: 2022-05-16 23:51:14
  * @Description: TODO: Description of file, its uses and information
- * @LastEditTime: 2022-05-17 04:20:16
+ * @LastEditTime: 2022-05-17 10:45:53
  * @LastEditors: zhiguo.jzg
  */
 import axios from './utils/redaxios';
@@ -115,5 +115,11 @@ function _getEnv(key: string): string {
   return value;
 }
 function _getAlfredEnv(key: string): string {
-  return _getEnv(`alfred_${key}`);
+  let value;
+  try {
+    value = _getEnv(`alfred_${key}`);
+  } catch (e) {
+    // nothing
+  }
+  return value as string;
 }
