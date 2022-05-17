@@ -2,7 +2,7 @@
  * @Author: zhiguo.jzg
  * @Date: 2022-05-16 23:51:14
  * @Description: TODO: Description of file, its uses and information
- * @LastEditTime: 2022-05-17 14:37:31
+ * @LastEditTime: 2022-05-17 14:50:11
  * @LastEditors: zhiguo.jzg
  */
 import axios from './utils/redaxios';
@@ -108,7 +108,7 @@ function _getIcon(name: string): string {
   return `/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/${name}.icns`;
 }
 function _getEnv(key: string): string {
-  const value = tjs.getenv[key];
+  const value = tjs.getenv(key);
   if (value === undefined) {
     throw new Error(`Environment variable ${key} is not defined.`);
   }
