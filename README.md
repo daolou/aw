@@ -322,7 +322,7 @@ Non-synced local preferences are stored within `Alfred.alfredpreferences` under 
 
 _Alfred workflows using aw_
 
-- alfred-adcode - 根据区域码或中文名获取行政信息
+- [alfred-adcode](https://github.com/daolou/alfred-adcode) - 根据区域码或中文名获取行政信息
 
 ## Related
 
