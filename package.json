@@ -1,13 +1,14 @@
 {
-  "name": "aw",
+  "name": "@jsany/aw",
   "version": "1.0.0",
-  "description": "alfred workflow input and output",
+  "description": "a tiny tool for Create Alfred workflows",
   "keywords": [
     "alfred",
     "workflow",
-    "input",
-    "and",
-    "output"
+    "alfred-workflow",
+    "javascript",
+    "aw",
+    "tiny"
   ],
   "homepage": "https://github.com/daolou/aw#readme",
   "bugs": {
@@ -19,6 +20,7 @@
   },
   "license": "MIT",
   "author": "daolou <jiangzhiguo2010@qq.com>",
+  "type": "module",
   "main": "lib/index.js",
   "scripts": {
     "check:ts": "tsc --noEmit --pretty",
