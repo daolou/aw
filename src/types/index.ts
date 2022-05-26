@@ -210,8 +210,7 @@ export interface ScriptFilterItem {
 	}
 	```
 	*/
-  // TODO (jopemachine): Activate attribute below after 'action' is implemented in Alfred.
-  // readonly action?: string | string[] | ActionElement;
+  readonly action?: string | string[] | ActionElement;
 
   /**
 	The text element defines the text the user will get when copying the selected result row with `⌘C` or displaying large type with `⌘L`.
@@ -247,3 +246,5 @@ export interface ScriptFilterItem {
 	*/
   readonly variables?: Record<string, string>;
 }
+
+export type MatchesTargetFn = (item: string | ScriptFilterItem, input: string) => boolean;

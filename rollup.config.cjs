@@ -2,12 +2,12 @@
  * @Author: zhiguo.jzg
  * @Date: 2022-05-17 04:38:57
  * @Description: TODO: Description of file, its uses and information
- * @LastEditTime: 2022-05-18 00:58:00
+ * @LastEditTime: 2022-05-19 22:38:12
  * @LastEditors: zhiguo.jzg
  */
-import ts from 'rollup-plugin-ts';
+const ts = require('rollup-plugin-ts');
 
-export default {
+module.exports = {
   input: 'src/index.ts',
   output: {
     dir: 'lib',

@@ -5,6 +5,7 @@
 ## Highlights
 
 - Easy input↔output.
+- Not require node,buildIn a tiny js runtime: [txiki.js](https://github.com/saghul/txiki.js).
 - BuildIn fetch.
 - Support for `async await`(ESM).
 
@@ -36,11 +37,11 @@ $ npm install @jsany/aw
 Here we fetch some JSON from a placeholder API and present matching items to the user:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
-const res = await aw.fetch.get('https://jsonplaceholder.typicode.com/posts');
+const res = await aw.fetch.get("https://jsonplaceholder.typicode.com/posts");
 
-const items = aw.inputMatches(res.data, 'title').map((element) => ({
+const items = aw.inputMatches(res.data, "title").map((element) => ({
   title: element.title,
   subtitle: element.body,
   arg: element.id,
@@ -70,14 +71,14 @@ List of `object` with any of the [supported properties](https://www.alfredapp.co
 Example:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
 aw.output([
   {
-    title: 'Unicorn',
+    title: "Unicorn",
   },
   {
-    title: 'Rainbow',
+    title: "Rainbow",
   },
 ]);
 ```
@@ -96,19 +97,19 @@ A script can be set to re-run automatically after some interval. The script will
 For example, it could be used to update the progress of a particular task:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
 aw.output(
   [
     {
-      title: 'Downloading Unicorns…',
+      title: "Downloading Unicorns…",
       subtitle: `${progress}%`,
     },
   ],
   {
     // Re-run and update progress every 3 seconds.
     rerunInterval: 3,
-  },
+  }
 );
 ```
 
@@ -121,9 +122,9 @@ Log value to the [Alfred workflow debugger](https://www.alfredapp.com/help/workf
 Returns an `string[]` of items in `list` that case-insensitively contains `input`.
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
-aw.matches('Corn', ['foo', 'unicorn']);
+aw.matches("Corn", ["foo", "unicorn"]);
 //=> ['unicorn']
 ```
 
@@ -148,55 +149,55 @@ By default, it will match against the `list` items.
 Specify a string to match against an object property:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
 const list = [
   {
-    title: 'foo',
+    title: "foo",
   },
   {
-    title: 'unicorn',
+    title: "unicorn",
   },
 ];
 
-aw.matches('Unicorn', list, 'title');
+aw.matches("Unicorn", list, "title");
 //=> [{title: 'unicorn'}]
 ```
 
 Or nested property:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
 const list = [
   {
     name: {
-      first: 'John',
-      last: 'Doe',
+      first: "John",
+      last: "Doe",
     },
   },
   {
     name: {
-      first: 'Sindre',
-      last: 'Sorhus',
+      first: "Sindre",
+      last: "Sorhus",
     },
   },
 ];
 
-aw.matches('sindre', list, 'name.first');
+aw.matches("sindre", list, "name.first");
 //=> [{name: {first: 'Sindre', last: 'Sorhus'}}]
 ```
 
 Specify a function to handle the matching yourself. The function receives the list item and input, both lowercased, as arguments, and is expected to return a boolean of whether it matches:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
-const list = ['foo', 'unicorn'];
+const list = ["foo", "unicorn"];
 
 // Here we do an exact match.
 // `Foo` matches the item since it's lowercased for you.
-aw.matches('Foo', list, (item, input) => item === input);
+aw.matches("Foo", list, (item, input) => item === input);
 //=> ['foo']
 ```
 
@@ -232,12 +233,12 @@ The most useful ones are included as keys. The rest you can get with `icon.get()
 Example:
 
 ```js
-import aw from './node_modules/@jsany/aw/lib/index.js';
+import aw from "./node_modules/@jsany/aw/lib/index.js";
 
 console.log(aw.icon.error);
 //=> '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertStopIcon.icns'
 
-console.log(aw.icon.get('Clock'));
+console.log(aw.icon.get("Clock"));
 //=> '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/Clock.icns'
 ```
 

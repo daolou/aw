@@ -28,37 +28,58 @@
   ],
   "scripts": {
     "check:ts": "tsc --noEmit --pretty",
-    "compile": "rimraf lib && rollup -c rollup.config.js",
+    "compile": "rimraf lib && rollup -c rollup.config.cjs",
+    "lint": "xo --fix src/**/*.{js,ts}",
     "np": "./scripts/publish.sh",
     "prepare": "husky install",
     "release": "standard-version",
-    "test": "./runtime/tjs ./lib/index.js"
+    "test": "./runtime/tjs ./test/index.js 'TJS_ENV=test'"
   },
   "lint-staged": {
     "package.json": [
       "sort-package-json"
     ],
     "src/**/*.{js,ts}": [
-      "prettier --write"
+      "xo --fix"
     ]
+  },
+  "xo": {
+    "globals": [
+      "tjs"
+    ],
+    "ignores": [
+      "redaxios.js"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unsafe-return": 0,
+      "import/extensions": [
+        2,
+        "never",
+        {
+          "ignorePackages": true
+        }
+      ],
+      "object-shorthand": [
+        2,
+        "always"
+      ],
+      "unicorn/no-abusive-eslint-disable": 0
+    },
+    "space": true
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
     "devmoji": "^2.3.0",
-    "eslint": "^8.15.0",
-    "eslint-config-alloy": "^4.5.1",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
-    "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.73.0",
     "rollup-plugin-ts": "^2.0.7",
     "sort-package-json": "^1.57.0",
     "standard-version": "^9.5.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "xo": "^0.49.0"
   },
   "publishConfig": {
     "access": "public",
